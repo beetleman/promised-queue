@@ -24,22 +24,3 @@
 
 (defn length [queue]
   (-> queue get-info :length))
-
-(comment
-  (with-open [queue (create [])]
-    (future
-      (try
-        (loop [item @(dequeue! queue)]
-          (println "Item:" item)
-          (recur @(dequeue! queue)))
-        (catch Exception e
-          (if (ex/queue-closed-ex? (ex-cause e))
-            (println "stop listening")
-            (println e)))))
-    (future
-      (dotimes [i 10]
-        (enqueue! queue i)
-        (println (get-info queue))
-        (Thread/sleep 100))
-      (println "stop sending"))
-    (Thread/sleep 1000)))
