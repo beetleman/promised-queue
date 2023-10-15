@@ -1,5 +1,7 @@
 # promised-queue
 
+[![test workflow](https://github.com/beetleman/promised-queue/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/beetleman/promised-queue/actions/workflows/test.yml)
+
 FIXME: my new library.
 
 ## Usage
